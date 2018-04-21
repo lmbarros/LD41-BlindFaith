@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/character_outline.png-78698fbcd16f50e321ed40d631bf5107.stex"
+path="res://.import/character_skin_mask.png-716df1b939bef768f40a41a0a0d3ce37.stex"
 
 [deps]
 
-source_file="res://scenes/character/character_outline.png"
-source_md5="4e880e8842fe696b04e60e95c027a6e9"
+source_file="res://scenes/characters/character_skin_mask.png"
+source_md5="bba8d4cad53256d3db93f5a9a6d7de7f"
 
-dest_files=[ "res://.import/character_outline.png-78698fbcd16f50e321ed40d631bf5107.stex" ]
-dest_md5="6a1382cb22a22176fcf8d58e7375ba0a"
+dest_files=[ "res://.import/character_skin_mask.png-716df1b939bef768f40a41a0a0d3ce37.stex" ]
+dest_md5="7040ddd09e9a2eb730f37162eebe6bcc"
 
 [params]
 

@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="LD41: Blind Faith"
-run/main_scene="res://scenes/island.tscn"
+run/main_scene="res://screens/in_game_screen.tscn"
 boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
 

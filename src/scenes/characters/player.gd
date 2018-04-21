@@ -1,4 +1,4 @@
-extends "res://scenes/character/base_character.gd"
+extends "res://scenes/characters/base_character.gd"
 
 
 func _process(delta):

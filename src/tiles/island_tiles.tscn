@@ -1,0 +1,374 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://tiles/terrain-tiles.png" type="Texture" id=1]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 0 ) ]
+outlines = [ PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128, 0, 0 ) ]
+
+[sub_resource type="NavigationPolygon" id=2]
+
+vertices = PoolVector2Array( 128, 128, 64, 128, 65, 112, 78, 99, 89, 75, 112, 62, 128, 64 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 3, 4, 5, 6 ), PoolIntArray( 0, 0, 6 ) ]
+outlines = [ PoolVector2Array( 128, 128, 128, 64, 112, 62, 89, 75, 78, 99, 65, 112, 64, 128, 128, 128 ) ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="NavigationPolygon" id=3]
+
+vertices = PoolVector2Array( 69, 32, 64, 0, 128, 0, 128, 128, 52, 91, 51, 72, 63, 110, 64, 128 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 0, 3, 6 ), PoolIntArray( 6, 3, 7 ) ]
+outlines = [ PoolVector2Array( 128, 0, 64, 0, 69, 32, 51, 72, 52, 91, 63, 110, 64, 128, 128, 128 ) ]
+
+[sub_resource type="NavigationPolygon" id=4]
+
+vertices = PoolVector2Array( 63, 17, 64, 0, 128, 0, 128, 64, 95, 63, 71, 29, 77, 55 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 5, 4, 6 ) ]
+outlines = [ PoolVector2Array( 64, 0, 63, 17, 71, 29, 77, 55, 95, 63, 128, 64, 128, 0 ) ]
+
+[sub_resource type="NavigationPolygon" id=5]
+
+vertices = PoolVector2Array( 0, 0, 128, 0, 128, 64, 101, 73, 72, 70, 45, 62, 15, 67, 0, 64 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 0, 5, 6, 7 ), PoolIntArray( 0, 0, 7 ) ]
+outlines = [ PoolVector2Array( 0, 0, 0, 64, 15, 67, 45, 62, 72, 70, 101, 73, 128, 64, 128, 0, 0, 0 ) ]
+
+[sub_resource type="NavigationPolygon" id=6]
+
+vertices = PoolVector2Array( 20, 53, 0, 64, 0, 0, 64, 0, 60, 28, 36, 51, 54, 41 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 0, 4, 6 ) ]
+outlines = [ PoolVector2Array( 60, 28, 64, 0, 0, 0, 0, 64, 20, 53, 36, 51, 54, 41 ) ]
+
+[sub_resource type="NavigationPolygon" id=7]
+
+vertices = PoolVector2Array( 0, 128, 0, 64, 26, 69, 128, 128, 58, 57, 84, 53, 114, 65, 128, 64 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5, 6 ), PoolIntArray( 3, 6, 7 ) ]
+outlines = [ PoolVector2Array( 0, 128, 128, 128, 128, 64, 114, 65, 84, 53, 58, 57, 26, 69, 0, 64 ) ]
+
+[sub_resource type="NavigationPolygon" id=8]
+
+vertices = PoolVector2Array( 63, 106, 64, 128, 0, 128, 0, 64, 14, 62, 41, 85, 57, 90, 29, 66 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 5, 6, 0 ), PoolIntArray( 5, 4, 7 ) ]
+outlines = [ PoolVector2Array( 0, 128, 64, 128, 63, 106, 57, 90, 41, 85, 29, 66, 14, 62, 0, 64 ) ]
+
+[sub_resource type="NavigationPolygon" id=9]
+
+vertices = PoolVector2Array( 0, 0, 64, 0, 61, 17, 0, 128, 70, 41, 70, 66, 62, 91, 64, 128 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5, 6 ), PoolIntArray( 3, 6, 7 ) ]
+outlines = [ PoolVector2Array( 64, 0, 61, 17, 70, 41, 70, 66, 62, 91, 64, 128, 0, 128, 0, 0 ) ]
+
+[sub_resource type="NavigationPolygon" id=10]
+
+vertices = PoolVector2Array( 128, 0, 128, 64, 105, 64, 0, 0, 84, 76, 0, 128, 67, 105, 64, 128 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4 ), PoolIntArray( 5, 3, 4, 6 ), PoolIntArray( 5, 6, 7 ) ]
+outlines = [ PoolVector2Array( 128, 64, 105, 64, 84, 76, 67, 105, 64, 128, 0, 128, 0, 0, 128, 0 ) ]
+
+[sub_resource type="NavigationPolygon" id=11]
+
+vertices = PoolVector2Array( 16, 63, 0, 64, 0, 0, 128, 0, 35, 68, 67, 59, 102, 70, 128, 64, 116, 69 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5 ), PoolIntArray( 6, 5, 3, 7, 8 ) ]
+outlines = [ PoolVector2Array( 128, 64, 116, 69, 102, 70, 67, 59, 35, 68, 16, 63, 0, 64, 0, 0, 128, 0 ) ]
+
+[sub_resource type="NavigationPolygon" id=12]
+
+vertices = PoolVector2Array( 9, 62, 0, 64, 0, 0, 128, 0, 128, 128, 38, 86, 64, 128, 61, 114, 50, 109, 42, 100, 26, 81 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 3, 4, 5 ), PoolIntArray( 4, 6, 7 ), PoolIntArray( 7, 8, 9, 5, 4 ), PoolIntArray( 0, 5, 10 ) ]
+outlines = [ PoolVector2Array( 128, 0, 0, 0, 0, 64, 9, 62, 26, 81, 38, 86, 42, 100, 50, 109, 61, 114, 64, 128, 128, 128 ) ]
+
+[sub_resource type="NavigationPolygon" id=13]
+
+vertices = PoolVector2Array( 64, 0, 128, 0, 128, 128, 63, 13, 53, 46, 52, 32, 63, 60, 54, 87, 64, 113, 64, 128 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 3, 2, 6 ), PoolIntArray( 7, 6, 2, 8 ), PoolIntArray( 8, 2, 9 ) ]
+outlines = [ PoolVector2Array( 128, 0, 128, 128, 64, 128, 64, 113, 54, 87, 63, 60, 53, 46, 52, 32, 63, 13, 64, 0 ) ]
+
+[sub_resource type="NavigationPolygon" id=14]
+
+vertices = PoolVector2Array( 0, 0, 64, 0, 62, 23, 0, 128, 70, 32, 69, 47, 62, 59, 59, 76, 64, 128, 68, 100 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5, 6 ), PoolIntArray( 3, 6, 7 ), PoolIntArray( 8, 3, 7, 9 ) ]
+outlines = [ PoolVector2Array( 64, 0, 62, 23, 70, 32, 69, 47, 62, 59, 59, 76, 68, 100, 64, 128, 0, 128, 0, 0 ) ]
+
+[sub_resource type="NavigationPolygon" id=15]
+
+vertices = PoolVector2Array( 122, 66, 128, 64, 128, 128, 0, 128, 104, 59, 0, 0, 91, 44, 85, 23, 64, 10, 64, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3 ), PoolIntArray( 4, 3, 5, 6 ), PoolIntArray( 7, 6, 5, 8 ), PoolIntArray( 8, 5, 9 ) ]
+outlines = [ PoolVector2Array( 0, 128, 128, 128, 128, 64, 122, 66, 104, 59, 91, 44, 85, 23, 64, 10, 64, 0, 0, 0 ) ]
+
+[sub_resource type="NavigationPolygon" id=16]
+
+vertices = PoolVector2Array( 121, 65, 128, 64, 128, 128, 0, 128, 86, 61, 102, 58, 62, 70, 0, 64, 16, 62, 30, 57 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 0, 3, 6 ), PoolIntArray( 6, 3, 7, 8 ), PoolIntArray( 6, 8, 9 ) ]
+outlines = [ PoolVector2Array( 128, 128, 0, 128, 0, 64, 16, 62, 30, 57, 62, 70, 86, 61, 102, 58, 121, 65, 128, 64 ) ]
+
+[sub_resource type="NavigationPolygon" id=17]
+
+vertices = PoolVector2Array( 68, 11, 64, 0, 128, 0, 128, 128, 68, 37, 0, 128, 57, 43, 26, 47, 42, 39, 10, 63, 0, 64 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3 ), PoolIntArray( 4, 3, 5, 6 ), PoolIntArray( 7, 8, 6, 5, 9 ), PoolIntArray( 9, 5, 10 ) ]
+outlines = [ PoolVector2Array( 128, 0, 128, 128, 0, 128, 0, 64, 10, 63, 26, 47, 42, 39, 57, 43, 68, 37, 68, 11, 64, 0 ) ]
+
+[node name="IslandTiles" type="Node" index="0"]
+
+[node name="Grass" type="Sprite" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( 192, 192 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 128, 128, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Grass" index="0"]
+
+visible = false
+navpoly = SubResource( 1 )
+enabled = true
+_sections_unfolded = [ "Visibility" ]
+
+[node name="GrassSE" type="Sprite" parent="." index="1"]
+
+editor/display_folded = true
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="GrassSE" index="0"]
+
+navpoly = SubResource( 2 )
+enabled = true
+
+[node name="GrassE" type="Sprite" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 0, 192 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 128, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="GrassE" index="0"]
+
+navpoly = SubResource( 3 )
+enabled = true
+
+[node name="GrassNE" type="Sprite" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 0, 384 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="GrassNE" index="0"]
+
+navpoly = SubResource( 4 )
+enabled = true
+
+[node name="GrassN" type="Sprite" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 192, 384 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 128, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="GrassN" index="0"]
+
+navpoly = SubResource( 5 )
+enabled = true
+
+[node name="GrassNW" type="Sprite" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( 384, 384 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="GrassNW" index="0"]
+
+navpoly = SubResource( 6 )
+enabled = true
+
+[node name="GrassS" type="Sprite" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( 192, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 128, 0, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="GrassS" index="0"]
+
+navpoly = SubResource( 7 )
+enabled = true
+
+[node name="GrassSW" type="Sprite" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 384, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 0, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="GrassSW" index="0"]
+
+navpoly = SubResource( 8 )
+enabled = true
+
+[node name="GrassW" type="Sprite" parent="." index="8"]
+
+editor/display_folded = true
+position = Vector2( 384, 192 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 256, 128, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="GrassW" index="0"]
+
+navpoly = SubResource( 9 )
+enabled = true
+
+[node name="SeaSE" type="Sprite" parent="." index="9"]
+
+editor/display_folded = true
+position = Vector2( 576, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 384, 0, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="SeaSE" index="0"]
+
+navpoly = SubResource( 10 )
+enabled = true
+
+[node name="SeaS" type="Sprite" parent="." index="10"]
+
+editor/display_folded = true
+position = Vector2( 768, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 512, 0, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="SeaS" index="0"]
+
+navpoly = SubResource( 11 )
+enabled = true
+
+[node name="SeaSW" type="Sprite" parent="." index="11"]
+
+editor/display_folded = true
+position = Vector2( 960, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 640, 0, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="SeaSW" index="0"]
+
+navpoly = SubResource( 12 )
+enabled = true
+
+[node name="SeaW" type="Sprite" parent="." index="12"]
+
+editor/display_folded = true
+position = Vector2( 960, 192 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 640, 128, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="SeaW" index="0"]
+
+navpoly = SubResource( 13 )
+enabled = true
+
+[node name="SeaE" type="Sprite" parent="." index="13"]
+
+editor/display_folded = true
+position = Vector2( 576, 192 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 384, 128, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="SeaE" index="0"]
+
+navpoly = SubResource( 14 )
+enabled = true
+
+[node name="Sea" type="Sprite" parent="." index="14"]
+
+position = Vector2( 768, 192 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 512, 128, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="SeaNE" type="Sprite" parent="." index="15"]
+
+editor/display_folded = true
+position = Vector2( 576, 384 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 384, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="SeaNE" index="0"]
+
+navpoly = SubResource( 15 )
+enabled = true
+
+[node name="SeaN" type="Sprite" parent="." index="16"]
+
+editor/display_folded = true
+position = Vector2( 768, 384 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 512, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="SeaN" index="0"]
+
+navpoly = SubResource( 16 )
+enabled = true
+
+[node name="SeaNW" type="Sprite" parent="." index="17"]
+
+position = Vector2( 960, 384 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 640, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="SeaNW" index="0"]
+
+navpoly = SubResource( 17 )
+enabled = true
+
+

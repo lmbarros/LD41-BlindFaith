@@ -17,7 +17,6 @@ func _process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		
-	# Rotate before magnet influence
 	if velocity.length_squared() > 0:
 		rotation = velocity.angle() + PI/2
 

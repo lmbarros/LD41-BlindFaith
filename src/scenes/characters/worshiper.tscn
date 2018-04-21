@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/characters/base_character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/characters/worshiper.gd" type="Script" id=2]
+
+[node name="Worshiper" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="BodyPaint" parent="." index="1"]
+
+modulate = Color( 0.424026, 0.566072, 0.691406, 1 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+

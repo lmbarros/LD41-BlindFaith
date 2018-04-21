@@ -22,3 +22,4 @@ func _process(delta):
 
 	# Move!
 	move_and_slide(velocity)
+

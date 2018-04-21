@@ -1,6 +1,13 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://tiles/terrain-tiles.png" type="Texture" id=1]
+[ext_resource path="res://tiles/tree.png" type="Texture" id=2]
+[ext_resource path="res://tiles/palm-tree.png" type="Texture" id=3]
+[ext_resource path="res://tiles/rock.png" type="Texture" id=4]
+[ext_resource path="res://tiles/vegetable_garden.png" type="Texture" id=5]
+[ext_resource path="res://tiles/communal-house.png" type="Texture" id=6]
+[ext_resource path="res://tiles/hospital.png" type="Texture" id=7]
+[ext_resource path="res://tiles/granary.png" type="Texture" id=8]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -105,7 +112,31 @@ vertices = PoolVector2Array( 68, 11, 64, 0, 128, 0, 128, 128, 68, 37, 0, 128, 57
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3 ), PoolIntArray( 4, 3, 5, 6 ), PoolIntArray( 7, 8, 6, 5, 9 ), PoolIntArray( 9, 5, 10 ) ]
 outlines = [ PoolVector2Array( 128, 0, 128, 128, 0, 128, 0, 64, 10, 63, 26, 47, 42, 39, 57, 43, 68, 37, 68, 11, 64, 0 ) ]
 
-[node name="IslandTiles" type="Node" index="0"]
+[sub_resource type="NavigationPolygon" id=18]
+
+vertices = PoolVector2Array( 128, 0, 128, 128, 115, 57, 113, 30, 103, 83, 85, 11, 0, 0, 42, 10, 17, 33, 72, 114, 72, 94, 85, 124, 0, 128, 34, 125, 20, 79, 53, 91, 51, 119, 10, 57 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 2, 1 ), PoolIntArray( 0, 3, 5 ), PoolIntArray( 6, 0, 5, 7 ), PoolIntArray( 6, 7, 8 ), PoolIntArray( 9, 10, 4, 1, 11 ), PoolIntArray( 11, 1, 12, 13 ), PoolIntArray( 14, 15, 16, 13, 12 ), PoolIntArray( 17, 14, 12 ), PoolIntArray( 17, 12, 6 ), PoolIntArray( 17, 6, 8 ) ]
+outlines = [ PoolVector2Array( 128, 0, 0, 0, 0, 128, 128, 128 ), PoolVector2Array( 17, 33, 42, 10, 85, 11, 113, 30, 115, 57, 103, 83, 72, 94, 72, 114, 85, 124, 34, 125, 51, 119, 53, 91, 20, 79, 10, 57 ) ]
+
+[sub_resource type="NavigationPolygon" id=19]
+
+vertices = PoolVector2Array( 128, 0, 128, 128, 102, 51, 95, 27, 93, 73, 30, 72, 44, 85, 37, 95, 49, 91, 60, 84, 42, 122, 0, 128, 34, 122, 0, 0, 28, 33, 62, 12 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 2, 1 ), PoolIntArray( 5, 6, 7 ), PoolIntArray( 8, 9, 4, 1, 10 ), PoolIntArray( 10, 1, 11, 12 ), PoolIntArray( 7, 12, 11, 13, 5 ), PoolIntArray( 14, 5, 13 ), PoolIntArray( 15, 14, 13 ), PoolIntArray( 15, 13, 0 ), PoolIntArray( 15, 0, 3 ) ]
+outlines = [ PoolVector2Array( 128, 0, 128, 128, 0, 128, 0, 0 ), PoolVector2Array( 42, 122, 34, 122, 37, 95, 44, 85, 30, 72, 28, 33, 62, 12, 95, 27, 102, 51, 93, 73, 60, 84, 49, 91 ) ]
+
+[sub_resource type="NavigationPolygon" id=20]
+
+vertices = PoolVector2Array( 128, 0, 128, 128, 121, 66, 108, 119, 0, 128, 30, 119, 103, 51, 102, 32, 7, 97, 0, 0, 13, 59, 27, 33, 77, 8 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 2, 1 ), PoolIntArray( 3, 1, 4, 5 ), PoolIntArray( 0, 2, 6, 7 ), PoolIntArray( 8, 5, 4 ), PoolIntArray( 8, 4, 9, 10 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 0, 7, 12 ), PoolIntArray( 9, 0, 12 ), PoolIntArray( 9, 12, 11 ) ]
+outlines = [ PoolVector2Array( 128, 0, 128, 128, 0, 128, 0, 0 ), PoolVector2Array( 77, 8, 102, 32, 103, 51, 121, 66, 108, 119, 30, 119, 7, 97, 13, 59, 27, 33 ) ]
+
+[sub_resource type="NavigationPolygon" id=21]
+
+vertices = PoolVector2Array( 128, 0, 128, 128, 125, 95, 125, 49, 99, 9, 0, 0, 34, 9, 99, 118, 0, 128, 32, 117, 3, 97, 3, 43 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 3, 4 ), PoolIntArray( 5, 0, 4, 6 ), PoolIntArray( 7, 2, 1 ), PoolIntArray( 7, 1, 8, 9 ), PoolIntArray( 10, 9, 8 ), PoolIntArray( 10, 8, 5, 11 ), PoolIntArray( 5, 6, 11 ) ]
+outlines = [ PoolVector2Array( 128, 0, 128, 128, 0, 128, 0, 0 ), PoolVector2Array( 34, 9, 99, 9, 125, 49, 125, 95, 99, 118, 32, 117, 3, 97, 3, 43 ) ]
+
+[node name="IslandTiles" type="Node"]
 
 [node name="Grass" type="Sprite" parent="." index="0"]
 
@@ -197,7 +228,7 @@ texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 256, 128, 128 )
-_sections_unfolded = [ "Offset", "Region", "Transform" ]
+_sections_unfolded = [ "Offset", "Region", "Transform", "Visibility" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -206,6 +237,7 @@ __meta__ = {
 
 navpoly = SubResource( 4 )
 enabled = true
+_sections_unfolded = [ "Visibility" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="GrassNE" index="1"]
 
@@ -635,6 +667,7 @@ __meta__ = {
 
 navpoly = SubResource( 17 )
 enabled = true
+_sections_unfolded = [ "Visibility" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="SeaNW" index="1"]
 
@@ -650,5 +683,231 @@ bounce = 0.0
 
 build_mode = 0
 polygon = PoolVector2Array( 0, 0, 0, 64, 11, 63, 25, 47, 41, 39, 58, 42, 69, 34, 69, 12, 64, 0 )
+
+[node name="Tree" type="Sprite" parent="." index="18"]
+
+position = Vector2( 0, 576 )
+texture = ExtResource( 2 )
+centered = false
+region_rect = Rect2( 0, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Tree" index="0"]
+
+navpoly = SubResource( 18 )
+enabled = true
+_sections_unfolded = [ "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tree" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tree/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 43, 10, 86, 11, 113, 30, 115, 57, 103, 83, 73, 93, 72, 115, 85, 124, 36, 125, 51, 119, 53, 92, 21, 79, 10, 57, 17, 33 )
+_sections_unfolded = [ "Material", "Visibility", "Z Index" ]
+
+[node name="PalmTree" type="Sprite" parent="." index="19"]
+
+position = Vector2( 192, 576 )
+texture = ExtResource( 3 )
+centered = false
+region_rect = Rect2( 0, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="PalmTree" index="0"]
+
+navpoly = SubResource( 19 )
+enabled = true
+_sections_unfolded = [ "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PalmTree" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PalmTree/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 62, 12, 95, 27, 101, 51, 93, 73, 60, 83, 49, 91, 42, 122, 34, 122, 36, 95, 44, 84, 31, 72, 29, 33 )
+_sections_unfolded = [ "Material", "Visibility", "Z Index" ]
+
+[node name="Rock" type="Sprite" parent="." index="20"]
+
+position = Vector2( 384, 576 )
+texture = ExtResource( 4 )
+centered = false
+region_rect = Rect2( 0, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rock" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rock/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 77, 8, 26, 34, 13, 59, 7, 97, 29, 118, 108, 118, 121, 67, 102, 51, 102, 32 )
+_sections_unfolded = [ "Material", "Visibility", "Z Index" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Rock" index="1"]
+
+navpoly = SubResource( 20 )
+enabled = true
+
+[node name="VegetableGarden" type="Sprite" parent="." index="21"]
+
+position = Vector2( 576, 576 )
+texture = ExtResource( 5 )
+centered = false
+region_rect = Rect2( 0, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="VegetableGarden" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VegetableGarden/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array(  )
+_sections_unfolded = [ "Material", "Visibility", "Z Index" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="VegetableGarden" index="1"]
+
+navpoly = null
+enabled = true
+
+[node name="CommunalHouse" type="Sprite" parent="." index="22"]
+
+position = Vector2( 0, 768 )
+texture = ExtResource( 6 )
+centered = false
+region_rect = Rect2( 0, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CommunalHouse" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CommunalHouse/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 34, 9, 99, 9, 125, 49, 125, 95, 99, 118, 32, 117, 3, 97, 3, 43 )
+_sections_unfolded = [ "Material", "Visibility", "Z Index" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="CommunalHouse" index="1"]
+
+navpoly = SubResource( 21 )
+enabled = true
+
+[node name="Hospital" type="Sprite" parent="." index="23"]
+
+position = Vector2( 192, 768 )
+texture = ExtResource( 7 )
+centered = false
+region_rect = Rect2( 0, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hospital" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hospital/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 34, 9, 99, 9, 125, 49, 125, 95, 99, 118, 32, 117, 3, 97, 3, 43 )
+_sections_unfolded = [ "Material", "Visibility", "Z Index" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Hospital" index="1"]
+
+navpoly = SubResource( 21 )
+enabled = true
+
+[node name="Granary" type="Sprite" parent="." index="24"]
+
+position = Vector2( 384, 768 )
+texture = ExtResource( 8 )
+centered = false
+region_rect = Rect2( 0, 256, 128, 128 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Granary" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Granary/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 34, 9, 99, 9, 125, 49, 125, 95, 99, 118, 32, 117, 3, 97, 3, 43 )
+_sections_unfolded = [ "Material", "Visibility", "Z Index" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Granary" index="1"]
+
+navpoly = SubResource( 21 )
+enabled = true
 
 

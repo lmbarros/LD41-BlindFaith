@@ -49,34 +49,30 @@ rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Node" type="RemoteTransform2D" parent="." index="4"]
+[node name="Status" type="Node2D" parent="." index="4"]
 
-remote_path = NodePath("")
-use_global_coordinates = true
-update_position = true
-update_rotation = true
-update_scale = true
-_sections_unfolded = [ "Transform", "Visibility" ]
+z_index = 100
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Fulfillment" type="Sprite" parent="Node" index="0"]
+[node name="Fulfillment" type="Sprite" parent="Status" index="0"]
 
-position = Vector2( -30, 44 )
+position = Vector2( -30, 54 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Energy" type="Sprite" parent="Node" index="1"]
+[node name="Energy" type="Sprite" parent="Status" index="1"]
 
-position = Vector2( 0, 44 )
+position = Vector2( 0, 54 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Health" type="Sprite" parent="Node" index="2"]
+[node name="Health" type="Sprite" parent="Status" index="2"]
 
-position = Vector2( 30, 44 )
+position = Vector2( 30, 54 )
 texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Disease" type="Sprite" parent="Node/Health" index="0"]
+[node name="Disease" type="Sprite" parent="Status/Health" index="0"]
 
 texture = ExtResource( 8 )
 

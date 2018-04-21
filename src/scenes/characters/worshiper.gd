@@ -59,6 +59,7 @@ func _physics_process(delta):
 			var velocity = (path[0] - position).normalized() * speed
 			if velocity.length_squared() > 0:
 				rotation = velocity.angle() + PI/2
+				$Status.rotation = -rotation
 			move_and_slide(velocity)
 		else:
 			path.remove(0)

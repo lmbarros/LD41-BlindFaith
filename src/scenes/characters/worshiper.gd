@@ -4,14 +4,21 @@ extends "res://scenes/characters/base_character.gd"
 # Behavioral variables
 #
 
-# Gained by doing deeds, finishing jobs, defeating enemies, 
+# Gained by doing deeds, finishing jobs, defeating enemies, worshiping...
 var fulfilment = 0.5
 
-# Gained by eating.
+# Gained by eating, resting.
 var energy = 0.5
 
 # Gained by resting in a hospital.
 var health = 0.5
+
+#
+# More state
+#
+
+# Disease or wounds
+var disease = 0.02
 
 #
 # Moving
@@ -33,15 +40,20 @@ func move_to_then_do(target_tile, func_to_do, arg):
 	path = nav.get_simple_path(position, target, false)
 
 
-func _ready():
-	move_to_then_do(Vector2(24, 19), "i_am_there", ["P1", 171])
+func _physics_process(delta):
+	# Internal state
+	fulfilment -= 1.0/100 * delta
+	energy -= 1.0/250 * delta
+	health -= (1.0/30*disease) * delta
+	
+	# AI
+	decide_again_in_secs -= delta
+	
+	if decide_again_in_secs <= 0:
+		decide_what_to_do()
+		decide_again_in_secs = rand_range(10.0, 30.0)
 
-
-func i_am_there(p):
-	print("I arrived, with params " + str(p[0]) + " / " + str(p[1]))
-
-
-func _process(delta):
+	# Movement
 	if path.size() > 0:
 		if position.distance_squared_to(path[0]) > ARRIVAL_DELTA:
 			var velocity = (path[0] - position).normalized() * speed
@@ -52,3 +64,34 @@ func _process(delta):
 			path.remove(0)
 			if path.size() == 0:
 				self.call(func_at_arrival, arg_at_arrival)
+
+#
+# AI
+#
+
+var decide_again_in_secs = 0.0
+
+func decide_what_to_do():
+	move_to_random_location()
+
+	
+func move_to_random_location():
+	var near_area = [ Vector2(12, 8), Vector2(22, 18) ]
+	var medium_area = [ Vector2(11, 7), Vector2(29, 35) ]
+	var far_area = [ Vector2(11, 7), Vector2(43, 35) ]
+	
+	var area = far_area
+	var r = randf()
+	if r < 0.55:
+		area = near_area
+	elif r < 0.90:
+		area = medium_area
+	
+	var x = randi() % int((area[1].x-area[0].x) + area[0].x)
+	var y = randi() % int((area[1].y-area[0].y) + area[0].y)
+	print(str(self) + " going to " + str(x) + ", " + str(y))
+	move_to_then_do(Vector2(x,y), "do_nothing", null)
+	
+	
+func do_nothing(dummy):
+	pass

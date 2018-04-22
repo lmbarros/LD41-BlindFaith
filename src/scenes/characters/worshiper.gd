@@ -40,7 +40,7 @@ var health = 0.5
 #
 
 # Disease or wounds
-var disease = 0.02
+var disease = 0.2
 
 #
 # Moving
@@ -100,12 +100,14 @@ func _physics_process(delta):
 var decide_again_in_secs = 0.0
 
 func decide_what_to_do():
-	if randf() < 1.0 - health + 0.15:
+	decide_again_in_secs = 60.0
+
+	if randf() < disease + 0.25:
 		go_to_the_hospital()
-		decide_again_in_secs = 60.0
+	elif randf() < 1.0 - health + 0.15:
+		go_to_the_hospital()
 	elif randf() < 1.0 - energy:
 		find_food()
-		decide_again_in_secs = 60.0
 	else:
 		move_to_random_location()
 		decide_again_in_secs = rand_range(10.0, 30.0)
@@ -175,6 +177,8 @@ func do_eat(dummy):
 func do_heal(dummy):
 	health += 0.4
 	health = clamp(health, 0.0, 1.0)
+	disease -= 0.1
+	disease = clamp(disease, 0.0, 1.0)
 	decide_again_in_secs = 7.0
 
 

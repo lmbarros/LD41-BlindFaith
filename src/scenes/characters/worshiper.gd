@@ -86,6 +86,9 @@ func _physics_process(delta):
 				rotation = velocity.angle() + PI/2
 				$Status.rotation = -rotation
 			move_and_slide(velocity)
+			
+			energy -= delta * 1.0/180
+			
 		else:
 			path.remove(0)
 			if path.size() == 0:

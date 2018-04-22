@@ -108,9 +108,30 @@ func decide_what_to_do():
 		go_to_the_hospital()
 	elif randf() < 1.0 - energy:
 		find_food()
+	elif is_motivated() and is_any_garden_ready():
+		go_harvest()		
 	else:
 		move_to_random_location()
 		decide_again_in_secs = rand_range(10.0, 30.0)
+
+
+
+func is_motivated():
+	return randf() < fulfillment
+
+
+
+var ready_gardens = [ ]
+
+func is_any_garden_ready():
+	ready_gardens = []
+
+	var gardens = get_tree().get_nodes_in_group("Gardens")	
+	for g in gardens:
+		if g.readiness >= 1.0:
+			ready_gardens.append(g)
+
+	return ready_gardens.size() > 0
 
 
 
@@ -127,7 +148,21 @@ func go_to_the_hospital():
 	move_to_then_do(target_tile, "do_heal", null)
 
 
-	
+
+func go_harvest():
+	var gardens = get_tree().get_nodes_in_group("Gardens")
+
+	if ready_gardens.size() == 0:
+		decide_again_in_secs = 2.0
+		return
+
+	var garden = ready_gardens[randi() % ready_gardens.size()]
+	var area = [ Vector2(15, 13), Vector2(18, 15) ]
+	var target_tile = get_random_pos_in_area(area)
+	move_to_then_do(target_tile, "do_harvest", garden)
+
+
+
 func move_to_random_location():
 	var near_area = [ Vector2(12, 8), Vector2(22, 18) ]
 	var medium_area = [ Vector2(11, 7), Vector2(29, 35) ]
@@ -182,6 +217,18 @@ func do_heal(dummy):
 	decide_again_in_secs = 7.0
 
 
-	
+
+func do_harvest(garden):
+	if garden.readiness >= 1.0:
+		TheState.food += rand_range(5, 10)
+		decide_again_in_secs = 10.0
+		garden.readiness = 0.0
+		fulfillment += 0.4
+		fulfillment = clamp(fulfillment, 0.0, 1.0)
+	else:
+		decide_again_in_secs = 1.0
+
+
+
 func do_nothing(dummy):
 	pass

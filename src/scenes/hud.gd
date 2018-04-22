@@ -12,4 +12,4 @@ func _process(delta):
 	$Panel/Worshipers.text = "Worshipers: " + str(get_tree().get_nodes_in_group("Worshipers").size())
 	$Panel/Nonbelievers.text = "Nonbelievers: " + str(get_tree().get_nodes_in_group("Nonbelievers").size())
 
-	$Panel/Food.text = "Food: " + str(TheState.food)
+	$Panel/Food.text = "Food: " + str(int(TheState.food))

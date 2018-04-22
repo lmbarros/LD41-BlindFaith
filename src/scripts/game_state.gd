@@ -117,7 +117,7 @@ func do_miracle_fertilize(m):
 		g.add_child(fx)
 		fx.restart()
 
-	faith += readiness_amount * m.cost * 0.2
+	faith += readiness_amount * m.cost * 0.35
 
 
 

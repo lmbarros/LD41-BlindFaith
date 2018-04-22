@@ -108,7 +108,7 @@ func decide_what_to_do():
 		go_to_the_hospital()
 	elif randf() < 1.0 - energy:
 		find_food()
-	elif is_motivated() and is_any_garden_ready():
+	elif is_motivated() and is_energized() and is_any_garden_ready():
 		go_harvest()		
 	else:
 		move_to_random_location()
@@ -118,6 +118,11 @@ func decide_what_to_do():
 
 func is_motivated():
 	return randf() < fulfillment
+
+
+
+func is_energized():
+	return randf() < energy
 
 
 

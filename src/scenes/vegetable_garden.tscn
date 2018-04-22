@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/vegetable_garden.gd" type="Script" id=1]
 [ext_resource path="res://fonts/bold_text.tres" type="DynamicFont" id=2]
 
-[node name="VegetableGarden" type="Node2D" index="0"]
+[node name="VegetableGarden" type="Node2D"]
 
 script = ExtResource( 1 )
 readiness = 0.0

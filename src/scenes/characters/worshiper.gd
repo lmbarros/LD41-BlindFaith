@@ -76,7 +76,6 @@ func _physics_process(delta):
 	
 	if decide_again_in_secs <= 0:
 		decide_what_to_do()
-		decide_again_in_secs = rand_range(10.0, 30.0)
 
 	# Movement
 	if path.size() > 0:
@@ -101,7 +100,19 @@ func _physics_process(delta):
 var decide_again_in_secs = 0.0
 
 func decide_what_to_do():
-	move_to_random_location()
+	if randf() < 1.0 - energy:
+		find_food()
+		decide_again_in_secs = 60.0
+	else:
+		move_to_random_location()
+		decide_again_in_secs = rand_range(10.0, 30.0)
+
+
+
+func find_food():
+	var area = [ Vector2(15, 15), Vector2(18, 18) ]
+	var target_tile = get_random_pos_in_area(area)
+	move_to_then_do(target_tile, "do_eat", null)
 
 	
 func move_to_random_location():
@@ -116,10 +127,10 @@ func move_to_random_location():
 	elif r < 0.90:
 		area = medium_area
 	
-	var x = randi() % int((area[1].x-area[0].x)) + area[0].x
-	var y = randi() % int((area[1].y-area[0].y)) + area[0].y
+	var target_tile = get_random_pos_in_area(area)
 
-	move_to_then_do(Vector2(x,y), "do_nothing", null)
+	move_to_then_do(target_tile, "do_nothing", null)
+
 
 
 func watch(delta):
@@ -137,6 +148,16 @@ func watch(delta):
 			return
 
 	$VisionLine.visible = false
+
+
+
+func do_eat(dummy):
+	if TheState.food > 0:
+		TheState.food -= 1
+		energy += 0.9
+		energy = clamp(energy, 0.0, 1.0)
+
+	decide_what_to_do()
 
 	
 func do_nothing(dummy):

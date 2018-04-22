@@ -31,20 +31,13 @@ func _physics_process(delta):
 			move_and_slide(velocity)
 		else:
 			path.remove(0)
-			#if path.size() == 0:
-			#	self.call(func_at_arrival, arg_at_arrival)
-
 
 
 var path = [ ]
 
 func move_to_random_location():
 	var area = [ Vector2(27, 24), Vector2(43, 35) ]
-	var x = randi() % int((area[1].x-area[0].x)) + area[0].x
-	var y = randi() % int((area[1].y-area[0].y)) + area[0].y
+	var target_tile = get_random_pos_in_area(area)
 
-	var target = Vector2(x, y) * 128 + Vector2(64, 64)
+	var target = target_tile * 128 + Vector2(64, 64)
 	path = nav.get_simple_path(position, target, false)
-
-
-	#move_to_then_do(Vector2(x,y), "do_nothing", null)

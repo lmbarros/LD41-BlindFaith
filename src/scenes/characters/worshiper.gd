@@ -305,6 +305,7 @@ func go_wage_war():
 
 func attack_nonbeliever(nonbeliever):
 	if not nonbeliever.get_ref():
+		# Target already killed by someone else
 		decide_what_to_do_while_in_combat()
 		return
 
@@ -312,6 +313,8 @@ func attack_nonbeliever(nonbeliever):
 
 	foe.health -= rand_range(0.0, 1.1) * energy
 	foe.health = clamp(foe.health, 0.0, 1.0)
+	fulfillment += 0.35
+	fulfillment = clamp(fulfillment, 0.0, 1.0)
 
 	energy -= 0.15
 

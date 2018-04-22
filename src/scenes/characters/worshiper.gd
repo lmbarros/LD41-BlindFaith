@@ -2,6 +2,9 @@ extends "res://scenes/characters/base_character.gd"
 
 onready var status_gradient = load("res://scenes/characters/status_gradient.tres")
 
+func _ready():
+	$Status.rotation = -rotation
+
 #
 # Behavioral variables
 #

@@ -8,3 +8,6 @@ func _process(delta):
 	$Panel/MiracleName.text = "Selected Miracle: " + str(m.name)
 	$Panel/MiracleDescription.text = str(m.description)
 	$Panel/MiracleCost.text = "Cost in faith: " + str(int(m.cost))
+
+	$Panel/Worshipers.text = "Worshipers: " + str(get_tree().get_nodes_in_group("Worshipers").size())
+	$Panel/Nonbelievers.text = "Nonbelievers: " + str(get_tree().get_nodes_in_group("Nonbelievers").size())

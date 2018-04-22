@@ -40,6 +40,7 @@ func _physics_process(delta):
 			path.remove(0)
 
 
+
 var path = [ ]
 
 func move_to_random_location():
@@ -50,5 +51,12 @@ func move_to_random_location():
 	path = nav.get_simple_path(position, target, false)
 
 
+
 func _on_DieTimer_timeout():
 	queue_free()
+
+
+
+func stay_and_defend():
+	path = [ ]
+	decide_again_in_secs = 60

@@ -284,3 +284,57 @@ func do_nothing(dummy):
 
 func _on_DieTimer_timeout():
 	queue_free()
+
+
+
+
+func go_wage_war():
+	decide_again_in_secs = 120.0
+	
+	var nonbelievers = get_tree().get_nodes_in_group("Nonbelievers")
+	var n = nonbelievers[randi() % nonbelievers.size()]
+
+	n.stay_and_defend()
+	
+	var x = int(n.position.x / 128)
+	var y = int(n.position.y / 128)
+	
+	move_to_then_do(Vector2(x,y), "attack_nonbeliever", weakref(n))
+
+
+
+func attack_nonbeliever(nonbeliever):
+	if not nonbeliever.get_ref():
+		decide_what_to_do_while_in_combat()
+		return
+
+	var foe = nonbeliever.get_ref()
+
+	foe.health -= rand_range(0.0, 1.1) * energy
+	foe.health = clamp(foe.health, 0.0, 1.0)
+
+	energy -= 0.15
+
+	if foe.health == 0.0:
+		fulfillment = 1.0
+
+	# Counter-attack
+	if foe.health > 0.0:
+		disease += rand_range(0.0, 0.05)
+		disease = clamp(disease, 0.0, 1.0)
+
+		health -= rand_range(0.0, 0.16)
+		health = clamp(health, 0.0, 1.0)
+
+	if health > 0.0:
+		decide_what_to_do_while_in_combat()
+
+
+
+func decide_what_to_do_while_in_combat():
+	if disease >= 0.35 or health <= 0.5:
+		go_to_the_hospital()
+	elif energy < 0.3:
+		find_food()
+	else:
+		go_wage_war()

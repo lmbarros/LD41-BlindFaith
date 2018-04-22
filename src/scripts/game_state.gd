@@ -186,7 +186,7 @@ func do_miracle_attack(m):
 
 	# Now, check for witnesses
 	targets = get_worshipers_within_radius(m.radius)
-	faith += damage_amount * m.cost * targets.size()
+	faith += damage_amount * m.cost * targets.size() * 1.5
 
 
 

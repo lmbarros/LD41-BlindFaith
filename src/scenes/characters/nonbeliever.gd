@@ -15,12 +15,12 @@ func _physics_process(delta):
 	if is_dying:
 		return
 
+	if health <= 0.0:
+		die()
+
 	health += 1.0/120 * delta
 	health = clamp(health, 0.0, 1.0)
 	$Status/Health.modulate = status_gradient.interpolate(health)
-
-	if health <= 0.0:
-		die()
 
 	# AI
 	decide_again_in_secs -= delta

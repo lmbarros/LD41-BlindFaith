@@ -202,7 +202,6 @@ func get_worshipers_within_radius(r):
 
 
 
-
 func get_nonbelievers_within_radius(r):
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	var all_nonbelievers = get_tree().get_nodes_in_group("Nonbelievers")

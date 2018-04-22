@@ -100,7 +100,10 @@ func _physics_process(delta):
 var decide_again_in_secs = 0.0
 
 func decide_what_to_do():
-	if randf() < 1.0 - energy:
+	if randf() < 1.0 - health + 0.15:
+		go_to_the_hospital()
+		decide_again_in_secs = 60.0
+	elif randf() < 1.0 - energy:
 		find_food()
 		decide_again_in_secs = 60.0
 	else:
@@ -113,6 +116,14 @@ func find_food():
 	var area = [ Vector2(15, 15), Vector2(18, 18) ]
 	var target_tile = get_random_pos_in_area(area)
 	move_to_then_do(target_tile, "do_eat", null)
+
+
+
+func go_to_the_hospital():
+	var area = [ Vector2(18, 11), Vector2(21, 14) ]
+	var target_tile = get_random_pos_in_area(area)
+	move_to_then_do(target_tile, "do_heal", null)
+
 
 	
 func move_to_random_location():
@@ -157,7 +168,15 @@ func do_eat(dummy):
 		energy += 0.9
 		energy = clamp(energy, 0.0, 1.0)
 
-	decide_what_to_do()
+	decide_again_in_secs = 4.0
+
+
+
+func do_heal(dummy):
+	health += 0.4
+	health = clamp(health, 0.0, 1.0)
+	decide_again_in_secs = 7.0
+
 
 	
 func do_nothing(dummy):

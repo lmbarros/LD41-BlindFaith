@@ -59,15 +59,25 @@ func move_to_then_do(target_tile, func_to_do, arg):
 
 
 func _physics_process(delta):
+	if is_dying:
+		return
+
 	# Internal state
 	fulfillment -= 1.0/100 * delta
 	energy -= 1.0/250 * delta
 	health -= (1.0/30*disease) * delta
 	
+	fulfillment = clamp(fulfillment, 0.0, 1.0)
+	energy = clamp(energy, 0.0, 1.0)
+	health = clamp(health, 0.0, 1.0)
+
 	$Status/Fulfillment.modulate = status_gradient.interpolate(fulfillment)
 	$Status/Energy.modulate = status_gradient.interpolate(energy)
 	$Status/Health.modulate = status_gradient.interpolate(health)
 	$Status/Health/Disease.modulate = status_gradient.interpolate(1.0 - disease)
+	
+	if health <= 0.0:
+		die()
 	
 	# AI
 	watch(delta)
@@ -275,3 +285,8 @@ func do_procreate(garden):
 
 func do_nothing(dummy):
 	pass
+
+
+
+func _on_DieTimer_timeout():
+	queue_free()

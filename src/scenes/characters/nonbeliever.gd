@@ -11,9 +11,15 @@ func _ready():
 
 
 func _physics_process(delta):
+	if is_dying:
+		return
+
 	health += 1.0/120 * delta
 	health = clamp(health, 0.0, 1.0)
 	$Status/Health.modulate = status_gradient.interpolate(health)
+
+	if health <= 0.0:
+		die()
 
 	# AI
 	decide_again_in_secs -= delta
@@ -41,3 +47,7 @@ func move_to_random_location():
 
 	var target = target_tile * 128 + Vector2(64, 64)
 	path = nav.get_simple_path(position, target, false)
+
+
+func _on_DieTimer_timeout():
+	queue_free()

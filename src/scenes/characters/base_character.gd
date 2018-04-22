@@ -11,3 +11,11 @@ func get_random_pos_in_area(area):
 	var x = (randi() % int((area[1].x-area[0].x))) + area[0].x
 	var y = (randi() % int((area[1].y-area[0].y))) + area[0].y
 	return Vector2(x,y)
+
+
+
+var is_dying = false
+func die():
+	is_dying = true
+	$Anim.play("die_animation")
+	$DieTimer.start()

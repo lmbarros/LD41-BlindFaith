@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/characters/worshiper.gd" type="Script" id=1]
 [ext_resource path="res://scenes/characters/character_skin_mask.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/characters/icon-energy.png" type="Texture" id=6]
 [ext_resource path="res://scenes/characters/icon-health.png" type="Texture" id=7]
 [ext_resource path="res://scenes/characters/icon-disease.png" type="Texture" id=8]
+[ext_resource path="res://scenes/fx/die_animation.tres" type="Animation" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -15,7 +16,7 @@ custom_solver_bias = 0.0
 radius = 13.6663
 height = 31.4553
 
-[node name="Worshiper" type="KinematicBody2D"]
+[node name="Worshiper" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 4
@@ -138,5 +139,24 @@ _sections_unfolded = [ "Transform" ]
 [node name="Disease" type="Sprite" parent="Status/Health" index="0"]
 
 texture = ExtResource( 8 )
+
+[node name="DieTimer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="Anim" type="AnimationPlayer" parent="." index="8"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/die_animation = ExtResource( 9 )
+blend_times = [  ]
+
+[connection signal="timeout" from="DieTimer" to="." method="_on_DieTimer_timeout"]
 
 

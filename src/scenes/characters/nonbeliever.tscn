@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/characters/nonbeliever.gd" type="Script" id=1]
 [ext_resource path="res://scenes/characters/character_skin_mask.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/characters/character_outline.png" type="Texture" id=4]
 [ext_resource path="res://scenes/characters/icon-health.png" type="Texture" id=5]
 [ext_resource path="res://scenes/characters/icon-disease.png" type="Texture" id=6]
+[ext_resource path="res://scenes/fx/die_animation.tres" type="Animation" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -15,6 +16,7 @@ height = 31.4553
 
 [node name="Nonbeliever" type="KinematicBody2D"]
 
+modulate = Color( 1, 0, 0, 0 )
 input_pickable = false
 collision_layer = 8
 collision_mask = 7
@@ -62,5 +64,24 @@ texture = ExtResource( 5 )
 self_modulate = Color( 0.0111237, 0.949219, 0.047768, 1 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Visibility" ]
+
+[node name="DieTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="Anim" type="AnimationPlayer" parent="." index="6"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/die_animation = ExtResource( 7 )
+blend_times = [  ]
+
+[connection signal="timeout" from="DieTimer" to="." method="_on_DieTimer_timeout"]
 
 

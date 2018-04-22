@@ -1,0 +1,21 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+
+resource_name = "die"
+length = 2.8
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.723765 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 0.530392 ), Color( 1, 0, 0, 0.884 ), Color( 1, 0, 0, 0.165725 ), Color( 1, 0, 0, 0.569059 ), Color( 1, 0, 0, 0.127059 ), Color( 1, 0, 0, 0.436471 ), Color( 1, 0, 0, 0 ) ]
+}
+

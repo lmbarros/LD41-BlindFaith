@@ -1,4 +1,4 @@
 extends Node
 
- func _ready():
-	TheState.init()
+func _ready():
+	TheState.init($Island)

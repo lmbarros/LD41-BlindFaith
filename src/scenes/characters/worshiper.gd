@@ -2,8 +2,25 @@ extends "res://scenes/characters/base_character.gd"
 
 onready var status_gradient = load("res://scenes/characters/status_gradient.tres")
 
+enum State {
+	JUST_CREATED,
+	WANDERING,
+	STOPPED,
+}
+
 func _ready():
 	$Status.rotation = -rotation
+
+	var pos = Vector2()
+
+	match randi() % 3:
+		0: pos = $"../PosHouse1".position
+		1: pos = $"../PosHouse2".position
+		2: pos = $"../PosHouse3".position
+		
+	position = pos
+
+
 
 #
 # Behavioral variables

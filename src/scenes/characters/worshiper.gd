@@ -117,9 +117,9 @@ func move_to_random_location():
 	elif r < 0.90:
 		area = medium_area
 	
-	var x = randi() % int((area[1].x-area[0].x) + area[0].x)
-	var y = randi() % int((area[1].y-area[0].y) + area[0].y)
-	print(str(self) + " going to " + str(x) + ", " + str(y))
+	var x = randi() % int((area[1].x-area[0].x)) + area[0].x
+	var y = randi() % int((area[1].y-area[0].y)) + area[0].y
+
 	move_to_then_do(Vector2(x,y), "do_nothing", null)
 
 

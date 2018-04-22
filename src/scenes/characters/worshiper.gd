@@ -2,6 +2,8 @@ extends "res://scenes/characters/base_character.gd"
 
 func _ready():
 	$Status.rotation = -rotation
+	$Status/Action.text = ""
+
 
 	var pos = Vector2()
 
@@ -158,6 +160,7 @@ func is_any_garden_ready():
 
 
 func find_food():
+	$Status/Action.text = "Going to eat"
 	var area = [ Vector2(15, 15), Vector2(18, 18) ]
 	var target_tile = get_random_pos_in_area(area)
 	move_to_then_do(target_tile, "do_eat", null)
@@ -165,6 +168,7 @@ func find_food():
 
 
 func go_to_the_hospital():
+	$Status/Action.text = "Going to heal"
 	var area = [ Vector2(18, 11), Vector2(21, 14) ]
 	var target_tile = get_random_pos_in_area(area)
 	move_to_then_do(target_tile, "do_heal", null)
@@ -172,6 +176,7 @@ func go_to_the_hospital():
 
 
 func go_procreate():
+	$Status/Action.text = "Going to procreate"
 	var area = [ Vector2(14, 11), Vector2(20, 16) ]
 	var target_tile = get_random_pos_in_area(area)
 	move_to_then_do(target_tile, "do_procreate", null)
@@ -179,6 +184,7 @@ func go_procreate():
 
 
 func go_harvest():
+	$Status/Action.text = "Going to harvest"
 	var gardens = get_tree().get_nodes_in_group("Gardens")
 
 	if ready_gardens.size() == 0:
@@ -193,6 +199,7 @@ func go_harvest():
 
 
 func move_to_random_location():
+	$Status/Action.text = "Wandering"
 	var near_area = [ Vector2(12, 8), Vector2(22, 18) ]
 	var medium_area = [ Vector2(11, 7), Vector2(29, 35) ]
 	var far_area = [ Vector2(11, 7), Vector2(43, 35) ]
@@ -229,6 +236,7 @@ func watch(delta):
 
 
 func do_eat(dummy):
+	$Status/Action.text = "Eating"
 	if TheState.food > 0:
 		TheState.food -= 1
 		energy += 0.9
@@ -239,6 +247,7 @@ func do_eat(dummy):
 
 
 func do_heal(dummy):
+	$Status/Action.text = "Being healed"
 	health += 0.4
 	health = clamp(health, 0.0, 1.0)
 	disease -= 0.1
@@ -249,12 +258,14 @@ func do_heal(dummy):
 
 func do_harvest(garden):
 	if garden.readiness >= 1.0:
+		$Status/Action.text = "Harvesting"
 		TheState.food += rand_range(5, 10)
 		decide_again_in_secs = 10.0
 		garden.readiness = 0.0
 		fulfillment += 0.4
 		fulfillment = clamp(fulfillment, 0.0, 1.0)
 	else:
+		$Status/Action.text = "Waiting"
 		decide_again_in_secs = 1.0
 
 
@@ -263,6 +274,7 @@ onready var worshiper_scene = preload("res://scenes/characters/worshiper.tscn")
 
 func do_procreate(garden):
 	if not too_crowded():
+		$Status/Action.text = "Procreating"
 		var worshiper = worshiper_scene.instance()
 		$"..".add_child(worshiper)
 		energy -= 0.1
@@ -272,6 +284,7 @@ func do_procreate(garden):
 		
 		decide_again_in_secs = 7.5
 	else:
+		$Status/Action.text = "Waiting"
 		decide_again_in_secs = 1.0
 
 
@@ -288,6 +301,7 @@ func _on_DieTimer_timeout():
 
 
 func go_wage_war():
+	$Status/Action.text = "Waging war"
 	decide_again_in_secs = 120.0
 	
 	var nonbelievers = get_tree().get_nodes_in_group("Nonbelievers")
@@ -307,6 +321,8 @@ func attack_nonbeliever(nonbeliever):
 		# Target already killed by someone else
 		decide_what_to_do_while_in_combat()
 		return
+
+	$Status/Action.text = "Attacking"
 
 	var foe = nonbeliever.get_ref()
 

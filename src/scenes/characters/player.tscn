@@ -36,7 +36,7 @@ tracks/0/keys = {
 "values": [ 0.0, 359.0 ]
 }
 
-[node name="Player" index="0" groups=[
+[node name="Player" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 
@@ -82,6 +82,7 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Smoothing" ]
 self_modulate = Color( 1, 1, 1, 0.784549 )
 frames = SubResource( 1 )
 animation = "default"
+frame = 1
 playing = true
 _sections_unfolded = [ "Visibility" ]
 

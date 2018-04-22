@@ -2,9 +2,15 @@ extends "res://scenes/characters/base_character.gd"
 
 
 func _process(delta):
-	var velocity = Vector2()
+	# Miracles
+	if Input.is_action_pressed("miracle"):
+		$MiracleCircle.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+	else:
+		$MiracleCircle.self_modulate = Color(1.0, 1.0, 1.0, 0.4)
 
 	# Walk
+	var velocity = Vector2()
+
 	if Input.is_action_pressed("right"):
 		velocity.x += 1
 	if Input.is_action_pressed("left"):
@@ -19,6 +25,7 @@ func _process(delta):
 		
 	if velocity.length_squared() > 0:
 		rotation = velocity.angle() + PI/2
+		$MiracleCircle.rotation -= rotation
 
 	# Move!
 	move_and_slide(velocity)

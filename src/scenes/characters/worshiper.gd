@@ -1,11 +1,13 @@
 extends "res://scenes/characters/base_character.gd"
 
+onready var status_gradient = load("res://scenes/characters/status_gradient.tres")
+
 #
 # Behavioral variables
 #
 
 # Gained by doing deeds, finishing jobs, defeating enemies, worshiping...
-var fulfilment = 0.5
+var fulfillment = 0.5
 
 # Gained by eating, resting.
 var energy = 0.5
@@ -42,9 +44,14 @@ func move_to_then_do(target_tile, func_to_do, arg):
 
 func _physics_process(delta):
 	# Internal state
-	fulfilment -= 1.0/100 * delta
+	fulfillment -= 1.0/100 * delta
 	energy -= 1.0/250 * delta
 	health -= (1.0/30*disease) * delta
+	
+	$Status/Fulfillment.modulate = status_gradient.interpolate(fulfillment)
+	$Status/Energy.modulate = status_gradient.interpolate(energy)
+	$Status/Health.modulate = status_gradient.interpolate(health)
+	$Status/Health/Disease.modulate = status_gradient.interpolate(1.0 - disease)
 	
 	# AI
 	decide_again_in_secs -= delta
@@ -96,3 +103,6 @@ func move_to_random_location():
 	
 func do_nothing(dummy):
 	pass
+
+
+

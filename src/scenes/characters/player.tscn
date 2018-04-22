@@ -81,7 +81,6 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Smoothing" ]
 self_modulate = Color( 1, 1, 1, 0.784549 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 1
 playing = true
 _sections_unfolded = [ "Visibility" ]
 

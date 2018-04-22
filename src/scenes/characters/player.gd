@@ -2,8 +2,9 @@ extends "res://scenes/characters/base_character.gd"
 
 
 func _process(delta):
-	# Natural faith decrease
-	TheState.faith -= delta * 1.4
+	# Natural faith increase
+	var num_worshipers = get_tree().get_nodes_in_group("Worshipers").size()
+	TheState.faith += delta * 0.2 * num_worshipers
 	
 	# Miracles
 	if Input.is_action_just_released("next_miracle"):

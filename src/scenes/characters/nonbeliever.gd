@@ -10,6 +10,7 @@ func _ready():
 	add_to_group("Nonbelievers")
 
 
+
 func _physics_process(delta):
 	if is_dying:
 		return

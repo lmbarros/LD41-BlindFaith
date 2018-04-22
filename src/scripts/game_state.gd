@@ -89,6 +89,7 @@ func do_miracle():
 		Miracle.HEAL: do_miracle_heal(m)
 		Miracle.FERTILIZE: do_miracle_fertilize(m)
 		Miracle.JOY: do_miracle_joy(m)
+		Miracle.ATTACK: do_miracle_attack(m)
 
 
 
@@ -198,6 +199,20 @@ func get_worshipers_within_radius(r):
 			targets.append(w)
 
 	return targets
+
+
+
+
+func get_nonbelievers_within_radius(r):
+	var player = get_tree().get_nodes_in_group("Player")[0]
+	var all_nonbelievers = get_tree().get_nodes_in_group("Nonbelievers")
+	var targets = [ ]
+	for n in all_nonbelievers:
+		if player.position.distance_to(n.position) < r:
+			targets.append(n)
+
+	return targets
+
 
 
 

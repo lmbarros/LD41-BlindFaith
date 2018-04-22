@@ -19,6 +19,8 @@ func _ready():
 		2: pos = $"../PosHouse3".position
 		
 	position = pos
+	
+	add_to_group("Worshipers")
 
 
 

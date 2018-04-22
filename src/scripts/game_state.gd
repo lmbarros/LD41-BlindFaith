@@ -7,6 +7,7 @@ const INITIAL_FOOD = 10.0
 
 var faith = INITIAL_FAITH
 var food = INITIAL_FOOD
+var wariness = 0.0
 
 var selected_miracle = Miracle.HEAL
 
@@ -51,6 +52,7 @@ func init(island):
 	randomize()
 	create_worshipers(island)
 	create_nonbelievers(island)
+	update_wariness()
 
 
 func create_worshipers(island):
@@ -178,3 +180,20 @@ func get_gardens_within_radius(r):
 
 	return targets
 
+
+
+func update_wariness():
+	var total_wariness = 0.0
+	
+	var all_worshipers = get_tree().get_nodes_in_group("Worshipers")
+	if all_worshipers.size() == 0:
+		wariness = 0.0
+		return
+
+	for w in all_worshipers:
+		var one_wariness = w.health * (w.fulfillment+0.25) * w.energy
+		one_wariness = clamp(one_wariness, 0.0, 1.0)
+
+		total_wariness += one_wariness
+
+	wariness = clamp(total_wariness / all_worshipers.size(), 0.0, 1.0)

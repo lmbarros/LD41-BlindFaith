@@ -13,3 +13,5 @@ func _process(delta):
 	$Panel/Nonbelievers.text = "Nonbelievers: " + str(get_tree().get_nodes_in_group("Nonbelievers").size())
 
 	$Panel/Food.text = "Food: " + str(int(TheState.food))
+
+	$Panel/Wariness.text = "Wariness: " + str(int(TheState.wariness * 100)) + "%"

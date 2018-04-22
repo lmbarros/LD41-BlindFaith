@@ -6,12 +6,13 @@
 [ext_resource path="res://scenes/vegetable_garden.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=5]
 
-[node name="InGameScreen" type="Node" index="0"]
+[node name="InGameScreen" type="Node"]
 
 script = ExtResource( 1 )
 
 [node name="Island" parent="." index="0" instance=ExtResource( 2 )]
 
+editor/display_folded = true
 _sections_unfolded = [ "Pause" ]
 
 [node name="Player" parent="Island" index="1" instance=ExtResource( 3 )]
@@ -123,5 +124,14 @@ _sections_unfolded = [ "Transform" ]
 readiness = 0.33
 
 [node name="HUD" parent="." index="1" instance=ExtResource( 5 )]
+
+[node name="WarinessTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="WarinessTimer" to="." method="_on_WarinessTimer_timeout"]
 
 

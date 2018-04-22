@@ -22,7 +22,10 @@ collision_layer = 4
 collision_mask = 8
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Material", "Pickable", "Visibility", "collision" ]
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
 speed = 100
 
 [node name="VisionLine" type="Line2D" parent="." index="0"]

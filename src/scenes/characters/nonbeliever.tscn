@@ -21,6 +21,9 @@ collision_mask = 7
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Visibility", "collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
 speed = 100
 
 [node name="SkinPaint" type="Sprite" parent="." index="0"]

@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/vegetable_garden.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=5]
 
-[node name="InGameScreen" type="Node"]
+[node name="InGameScreen" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -88,6 +88,7 @@ scale = Vector2( 2.76942, 2.76942 )
 
 position = Vector2( 1985.15, 1729.36 )
 _sections_unfolded = [ "Transform" ]
+readiness = 0.12
 
 [node name="Garden2" parent="Island" index="15" groups=[
 "Gardens",
@@ -95,6 +96,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 2113.41, 1728.38 )
 _sections_unfolded = [ "Transform" ]
+readiness = 0.42
 
 [node name="Garden3" parent="Island" index="16" groups=[
 "Gardens",
@@ -102,6 +104,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 2240.69, 1728.87 )
 _sections_unfolded = [ "Transform" ]
+readiness = 0.21
 
 [node name="Garden4" parent="Island" index="17" groups=[
 "Gardens",
@@ -109,6 +112,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 2239.72, 1853.71 )
 _sections_unfolded = [ "Transform" ]
+readiness = 0.44
 
 [node name="Garden5" parent="Island" index="18" groups=[
 "Gardens",
@@ -116,6 +120,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 2116.83, 1856.15 )
 _sections_unfolded = [ "Transform" ]
+readiness = 0.33
 
 [node name="HUD" parent="." index="1" instance=ExtResource( 5 )]
 

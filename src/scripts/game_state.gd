@@ -43,8 +43,8 @@ var miracles = {
 
 	Miracle.ATTACK: {
 		name = "Attack",
-		description = "Harms nonbelievers; gets faith with witnesses.",
-		cost = 1,
+		description = "Harms nonbelievers; needs witnesses to gain faith.",
+		cost = 500,
 		radius = 350,
 	},
 }

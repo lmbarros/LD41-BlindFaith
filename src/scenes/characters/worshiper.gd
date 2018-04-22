@@ -57,8 +57,7 @@ func _physics_process(delta):
 		return
 
 	# Internal state
-	fulfillment -= 1.0/100 * delta
-	energy -= 1.0/250 * delta
+	fulfillment -= 1.0/360 * delta
 	health -= (1.0/30*disease) * delta
 	
 	fulfillment = clamp(fulfillment, 0.0, 1.0)
@@ -90,7 +89,7 @@ func _physics_process(delta):
 				$Status.rotation = -rotation
 			move_and_slide(velocity)
 			
-			energy -= delta * 1.0/180
+			energy -= delta * 1.0/300
 			
 		else:
 			path.remove(0)

@@ -21,7 +21,7 @@ func _process(delta):
 
 func _on_WarinessTimer_timeout():
 	TheState.update_wariness()
-	if TheState.wariness >= 0.1:
+	if TheState.wariness >= 0.5:
 		var war_prob = (TheState.wariness - 0.5) * 2.0
 		if randf() < war_prob:
 			var all_worshipers = get_tree().get_nodes_in_group("Worshipers")

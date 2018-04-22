@@ -18,7 +18,7 @@ func _physics_process(delta):
 	if health <= 0.0:
 		die()
 
-	health += 1.0/120 * delta
+	health += 1.0/900 * delta
 	health = clamp(health, 0.0, 1.0)
 	$Status/Health.modulate = status_gradient.interpolate(health)
 

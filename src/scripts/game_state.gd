@@ -17,6 +17,7 @@ enum Miracle {
 	FERTILIZE,
 	JOY,
 	ATTACK,
+	CURE,
 }
 
 var miracles = {
@@ -46,6 +47,13 @@ var miracles = {
 		description = "Harms nonbelievers; needs witnesses to gain faith.",
 		cost = 500,
 		radius = 350,
+	},
+
+	Miracle.CURE: {
+		name = "Cure",
+		description = "Cures disease and bleeding wounds.",
+		cost = 250,
+		radius = 250,
 	},
 }
 
@@ -90,6 +98,7 @@ func do_miracle():
 		Miracle.FERTILIZE: do_miracle_fertilize(m)
 		Miracle.JOY: do_miracle_joy(m)
 		Miracle.ATTACK: do_miracle_attack(m)
+		Miracle.CURE: do_miracle_cure(m)
 
 
 
@@ -187,6 +196,26 @@ func do_miracle_attack(m):
 	# Now, check for witnesses
 	targets = get_worshipers_within_radius(m.radius)
 	faith += damage_amount * m.cost * targets.size() * 1.5
+
+
+
+func do_miracle_cure(m):
+	var targets = get_worshipers_within_radius(m.radius)
+
+	var cure_amount = 0.0
+
+	for w in targets:
+		var disease_before = w.disease
+		w.disease = clamp (w.disease - 0.5, 0.0, 1.0)
+		var delta = disease_before - w.disease
+		cure_amount += delta
+		
+		var fx = miracle_particles.instance()
+		fx.amount = 2 + 35 * delta
+		w.add_child(fx)
+		fx.restart()
+
+	faith += cure_amount * m.cost * 1.50
 
 
 

@@ -15,7 +15,7 @@ custom_solver_bias = 0.0
 radius = 13.6663
 height = 31.4553
 
-[node name="Worshiper" type="KinematicBody2D" index="0"]
+[node name="Worshiper" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1

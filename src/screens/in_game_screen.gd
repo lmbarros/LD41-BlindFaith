@@ -1,4 +1,4 @@
 extends Node
 
-func _enter_tree():
-	randomize()
+ func _ready():
+	TheState.init()

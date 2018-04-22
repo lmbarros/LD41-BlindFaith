@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/characters/nonbeliever.gd" type="Script" id=1]
+[ext_resource path="res://scenes/characters/character_skin_mask.png" type="Texture" id=2]
+[ext_resource path="res://scenes/characters/character_body_mask.png" type="Texture" id=3]
+[ext_resource path="res://scenes/characters/character_outline.png" type="Texture" id=4]
+[ext_resource path="res://scenes/characters/icon-health.png" type="Texture" id=5]
+[ext_resource path="res://scenes/characters/icon-disease.png" type="Texture" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 13.6663
+height = 31.4553
+
+[node name="Nonbeliever" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 8
+collision_mask = 7
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material", "Visibility", "collision" ]
+speed = 100
+
+[node name="SkinPaint" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.851562, 0.750211, 0.651978, 1 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="BodyPaint" type="Sprite" parent="." index="1"]
+
+self_modulate = Color( 0.980469, 0.440445, 0.440445, 1 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="Outline" type="Sprite" parent="." index="2"]
+
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+visible = false
+position = Vector2( -1.74846e-07, 4 )
+rotation = 1.5708
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Status" type="Node2D" parent="." index="4"]
+
+[node name="Health" type="Sprite" parent="Status" index="0"]
+
+position = Vector2( 0, 51 )
+texture = ExtResource( 5 )
+
+[node name="Disease" type="Sprite" parent="Status/Health" index="0"]
+
+self_modulate = Color( 0.0111237, 0.949219, 0.047768, 1 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Visibility" ]
+
+

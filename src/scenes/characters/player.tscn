@@ -35,12 +35,12 @@ tracks/0/keys = {
 "values": [ 0.0, 359.0 ]
 }
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 
 collision_layer = 2
-collision_mask = 7
+collision_mask = 15
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Material", "Visibility", "collision" ]
 speed = 250

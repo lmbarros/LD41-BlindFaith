@@ -1,6 +1,7 @@
 extends Node
 
 const NUM_WORSHIPERS = 5
+const NUM_NONBELIEVERS = 20
 const INITIAL_FAITH = 1000.0
 
 var faith = INITIAL_FAITH 
@@ -23,11 +24,13 @@ var miracles = {
 onready var miracle_particles = load("res://scenes/fx/miracle_particles.tscn")
 
 var worshiper_scene = preload("res://scenes/characters/worshiper.tscn")
+var nonbeliever_scene = preload("res://scenes/characters/nonbeliever.tscn")
 
 func init(island):
 	faith = INITIAL_FAITH 
 	randomize()
 	create_worshipers(island)
+	create_nonbelievers(island)
 
 
 func create_worshipers(island):
@@ -35,6 +38,10 @@ func create_worshipers(island):
 		var worshiper = worshiper_scene.instance()
 		island.add_child(worshiper)
 
+func create_nonbelievers(island):
+	for i in range(NUM_NONBELIEVERS):
+		var nonbeliever = nonbeliever_scene.instance()
+		island.add_child(nonbeliever)
 
 
 #

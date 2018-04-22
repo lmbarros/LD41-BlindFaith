@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/characters/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=4]
 
-[node name="InGameScreen" type="Node" index="0"]
+[node name="InGameScreen" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -15,7 +15,7 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Player" parent="Island" index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 1848.29, 1235.26 )
+position = Vector2( 1848.54, 1238.54 )
 rotation = 3.14159
 z_index = 10
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]

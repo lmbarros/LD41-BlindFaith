@@ -1,7 +1,5 @@
 extends "res://scenes/characters/base_character.gd"
 
-onready var status_gradient = load("res://scenes/characters/status_gradient.tres")
-
 enum State {
 	JUST_CREATED,
 	WANDERING,
@@ -48,8 +46,6 @@ var disease = 0.02
 # Moving
 #
 
-const ARRIVAL_DELTA = 12*12
-onready var nav = get_tree().get_nodes_in_group("IslandNav")[0]
 var path = []
 var func_at_arrival = ""
 var arg_at_arrival = null

@@ -3,8 +3,11 @@ extends Node
 const NUM_WORSHIPERS = 5
 const NUM_NONBELIEVERS = 20
 const INITIAL_FAITH = 1000.0
+const INITIAL_FOOD = 10.0
 
-var faith = INITIAL_FAITH 
+var faith = INITIAL_FAITH
+var food = INITIAL_FOOD
+
 var selected_miracle = Miracle.HEAL
 
 

@@ -1,11 +1,5 @@
 extends "res://scenes/characters/base_character.gd"
 
-enum State {
-	JUST_CREATED,
-	WANDERING,
-	STOPPED,
-}
-
 func _ready():
 	$Status.rotation = -rotation
 

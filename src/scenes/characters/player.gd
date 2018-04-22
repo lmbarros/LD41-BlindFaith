@@ -46,3 +46,7 @@ func _process(delta):
 
 	# Move!
 	move_and_slide(velocity)
+
+
+func play_miracle():
+	$MiraclePlayer.play()

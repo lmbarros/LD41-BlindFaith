@@ -91,6 +91,9 @@ func do_miracle():
 	if m.cost >= faith:
 		return
 	
+	var player = get_tree().get_nodes_in_group("Player")[0]
+	player.play_miracle()
+	
 	faith -= m.cost
 
 	match selected_miracle:

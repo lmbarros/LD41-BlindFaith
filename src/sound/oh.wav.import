@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/oh.wav-27aaf0bfa712c96ce8bd4847883c0acb.sample"
+
+[deps]
+
+source_file="res://sound/oh.wav"
+source_md5="4107cecea23b80439493cec9a9218aa5"
+
+dest_files=[ "res://.import/oh.wav-27aaf0bfa712c96ce8bd4847883c0acb.sample" ]
+dest_md5="b8ed4a75202d8c2deec38478e8cc106b"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

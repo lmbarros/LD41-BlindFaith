@@ -109,7 +109,9 @@ func decide_what_to_do():
 	elif randf() < 1.0 - energy:
 		find_food()
 	elif is_motivated() and is_energized() and is_any_garden_ready():
-		go_harvest()		
+		go_harvest()
+	elif is_motivated() and is_energized() and is_healthy() and not too_crowded():
+		go_procreate()
 	else:
 		move_to_random_location()
 		decide_again_in_secs = rand_range(10.0, 30.0)
@@ -123,6 +125,18 @@ func is_motivated():
 
 func is_energized():
 	return randf() < energy
+
+
+
+func is_healthy():
+	return randf() < health
+
+
+
+const MAX_BELIEVERS = 25
+func too_crowded():
+	var population = get_tree().get_nodes_in_group("Worshipers").size()
+	return population >= MAX_BELIEVERS
 
 
 
@@ -151,6 +165,13 @@ func go_to_the_hospital():
 	var area = [ Vector2(18, 11), Vector2(21, 14) ]
 	var target_tile = get_random_pos_in_area(area)
 	move_to_then_do(target_tile, "do_heal", null)
+
+
+
+func go_procreate():
+	var area = [ Vector2(14, 11), Vector2(20, 16) ]
+	var target_tile = get_random_pos_in_area(area)
+	move_to_then_do(target_tile, "do_procreate", null)
 
 
 
@@ -230,6 +251,23 @@ func do_harvest(garden):
 		garden.readiness = 0.0
 		fulfillment += 0.4
 		fulfillment = clamp(fulfillment, 0.0, 1.0)
+	else:
+		decide_again_in_secs = 1.0
+
+
+
+onready var worshiper_scene = preload("res://scenes/characters/worshiper.tscn")
+
+func do_procreate(garden):
+	if not too_crowded():
+		var worshiper = worshiper_scene.instance()
+		$"..".add_child(worshiper)
+		energy -= 0.1
+		energy = clamp(energy, 0.0, 1.0)
+		fulfillment += 0.85
+		fulfillment = clamp(fulfillment, 0.0, 1.0)
+		
+		decide_again_in_secs = 7.5
 	else:
 		decide_again_in_secs = 1.0
 

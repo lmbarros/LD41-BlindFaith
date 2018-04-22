@@ -18,30 +18,41 @@ height = 31.4553
 [node name="Worshiper" type="KinematicBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 2
+collision_layer = 4
 collision_mask = 4
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Visibility", "collision" ]
 speed = 100
 
-[node name="SkinPaint" type="Sprite" parent="." index="0"]
+[node name="VisionLine" type="Line2D" parent="." index="0"]
+
+visible = false
+points = PoolVector2Array( 0, 0, 0, -256 )
+width = 20.0
+default_color = Color( 0.941014, 0.945312, 0.395111, 0.397804 )
+end_cap_mode = 2
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Capping", "Fill", "Visibility" ]
+
+[node name="SkinPaint" type="Sprite" parent="." index="1"]
 
 modulate = Color( 0.851562, 0.750211, 0.651978, 1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="BodyPaint" type="Sprite" parent="." index="1"]
+[node name="BodyPaint" type="Sprite" parent="." index="2"]
 
 modulate = Color( 0.424026, 0.566072, 0.691406, 1 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="Outline" type="Sprite" parent="." index="2"]
+[node name="Outline" type="Sprite" parent="." index="3"]
 
 texture = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
 visible = false
 position = Vector2( -1.74846e-07, 4 )
@@ -49,7 +60,53 @@ rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Status" type="Node2D" parent="." index="4"]
+[node name="Vision" type="Node2D" parent="." index="5"]
+
+[node name="Ray1" type="RayCast2D" parent="Vision" index="0"]
+
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, -400 )
+collision_mask = 3
+_sections_unfolded = [ "Transform" ]
+
+[node name="Ray2" type="RayCast2D" parent="Vision" index="1"]
+
+rotation = 0.20944
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, -400 )
+collision_mask = 3
+_sections_unfolded = [ "Transform" ]
+
+[node name="Ray3" type="RayCast2D" parent="Vision" index="2"]
+
+rotation = -0.20944
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, -400 )
+collision_mask = 3
+_sections_unfolded = [ "Transform" ]
+
+[node name="Ray4" type="RayCast2D" parent="Vision" index="3"]
+
+rotation = -0.418879
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, -400 )
+collision_mask = 3
+_sections_unfolded = [ "Transform" ]
+
+[node name="Ray5" type="RayCast2D" parent="Vision" index="4"]
+
+rotation = 0.418879
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, -400 )
+collision_mask = 3
+_sections_unfolded = [ "Transform" ]
+
+[node name="Status" type="Node2D" parent="." index="6"]
 
 z_index = 100
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]

@@ -57,8 +57,6 @@ func move_to_then_do(target_tile, func_to_do, arg):
 	arg_at_arrival = arg
 	
 	var target = target_tile * 128 + Vector2(64, 64)
-	print(position)
-	print(target)
 	path = nav.get_simple_path(position, target, false)
 
 
@@ -74,6 +72,8 @@ func _physics_process(delta):
 	$Status/Health/Disease.modulate = status_gradient.interpolate(1.0 - disease)
 	
 	# AI
+	watch()
+
 	decide_again_in_secs -= delta
 	
 	if decide_again_in_secs <= 0:
@@ -119,7 +119,21 @@ func move_to_random_location():
 	var y = randi() % int((area[1].y-area[0].y) + area[0].y)
 	print(str(self) + " going to " + str(x) + ", " + str(y))
 	move_to_then_do(Vector2(x,y), "do_nothing", null)
-	
+
+
+func watch():
+	var player = get_tree().get_nodes_in_group("Player")[0]
+	for i in range($Vision.get_child_count()):
+		var ray_cast = $Vision.get_child(i)
+		ray_cast.force_raycast_update()
+
+		if ray_cast.is_colliding() and ray_cast.get_collider() == player:
+			$VisionLine.points[1] = to_local(ray_cast.get_collision_point())
+			$VisionLine.visible = true
+			return
+
+	$VisionLine.visible = false
+
 	
 func do_nothing(dummy):
 	pass

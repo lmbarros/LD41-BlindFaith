@@ -6,6 +6,11 @@ func _process(delta):
 	TheState.faith -= delta * 1.4
 	
 	# Miracles
+	if Input.is_action_just_released("next_miracle"):
+		TheState.next_miracle()
+	if Input.is_action_just_released("prev_miracle"):
+		TheState.prev_miracle()
+	
 	var the_miracle = TheState.miracles[TheState.selected_miracle]
 
 	if Input.is_action_pressed("miracle"):

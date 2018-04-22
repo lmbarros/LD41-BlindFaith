@@ -82,34 +82,45 @@ scale = Vector2( 2.76942, 2.76942 )
 position = Vector2( 2150.98, 1792.4 )
 scale = Vector2( 2.76942, 2.76942 )
 
-[node name="Garden1" parent="Island" index="14" instance=ExtResource( 4 )]
+[node name="Garden1" parent="Island" index="14" groups=[
+"Gardens",
+] instance=ExtResource( 4 )]
 
 position = Vector2( 1985.15, 1729.36 )
 _sections_unfolded = [ "Transform" ]
-readyness = 0.2
+readiness = 0.0
 
-[node name="Garden2" parent="Island" index="15" instance=ExtResource( 4 )]
+[node name="Garden2" parent="Island" index="15" groups=[
+"Gardens",
+] instance=ExtResource( 4 )]
 
 position = Vector2( 2113.41, 1728.38 )
 _sections_unfolded = [ "Transform" ]
-readyness = 0.43
+readiness = 0.0
 
-[node name="Garden3" parent="Island" index="16" instance=ExtResource( 4 )]
+[node name="Garden3" parent="Island" index="16" groups=[
+"Gardens",
+] instance=ExtResource( 4 )]
 
 position = Vector2( 2240.69, 1728.87 )
 _sections_unfolded = [ "Transform" ]
-readyness = 0.02
+readiness = 0.0
 
-[node name="Garden4" parent="Island" index="17" instance=ExtResource( 4 )]
+[node name="Garden4" parent="Island" index="17" groups=[
+"Gardens",
+] instance=ExtResource( 4 )]
 
 position = Vector2( 2239.72, 1853.71 )
 _sections_unfolded = [ "Transform" ]
-readyness = 0.17
+readiness = 0.0
 
-[node name="Garden5" parent="Island" index="18" instance=ExtResource( 4 )]
+[node name="Garden5" parent="Island" index="18" groups=[
+"Gardens",
+] instance=ExtResource( 4 )]
 
 position = Vector2( 2116.83, 1856.15 )
 _sections_unfolded = [ "Transform" ]
+readiness = 0.0
 
 [node name="HUD" parent="." index="1" instance=ExtResource( 5 )]
 

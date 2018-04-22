@@ -16,6 +16,7 @@ enum Miracle {
 	HEAL,
 	FERTILIZE,
 	JOY,
+	ATTACK,
 }
 
 var miracles = {
@@ -38,8 +39,14 @@ var miracles = {
 		description = "Brings fulfillment to the soul.",
 		cost = 150,
 		radius = 250,
-	}
+	},
 
+	Miracle.ATTACK: {
+		name = "Attack",
+		description = "Harms nonbelievers; gets faith with witnesses.",
+		cost = 1,
+		radius = 350,
+	},
 }
 
 onready var miracle_particles = load("res://scenes/fx/miracle_particles.tscn")
@@ -84,6 +91,21 @@ func do_miracle():
 		Miracle.JOY: do_miracle_joy(m)
 
 
+
+func next_miracle():
+	selected_miracle += 1
+	if selected_miracle >= Miracle.size():
+		selected_miracle = 0
+
+	
+
+func prev_miracle():
+	selected_miracle -= 1
+	if selected_miracle < 0:
+		selected_miracle = Miracle.size()-1
+
+
+
 func do_miracle_heal(m):
 	var targets = get_worshipers_within_radius(m.radius)
 
@@ -101,6 +123,7 @@ func do_miracle_heal(m):
 		fx.restart()
 
 	faith += healed_amount * m.cost * 1.08 # fully healing someone has a net gain
+
 
 
 func do_miracle_fertilize(m):
@@ -123,20 +146,6 @@ func do_miracle_fertilize(m):
 
 
 
-func next_miracle():
-	selected_miracle += 1
-	if selected_miracle >= Miracle.size():
-		selected_miracle = 0
-
-	
-
-func prev_miracle():
-	selected_miracle -= 1
-	if selected_miracle < 0:
-		selected_miracle = Miracle.size()-1
-
-
-
 func do_miracle_joy(m):
 	var targets = get_worshipers_within_radius(m.radius)
 
@@ -155,6 +164,28 @@ func do_miracle_joy(m):
 
 	faith += fulfillment_amount * m.cost * 0.6
 
+
+
+func do_miracle_attack(m):
+	# First, do the damage
+	var targets = get_nonbelievers_within_radius(m.radius)
+
+	var damage_amount = 0.0
+
+	for n in targets:
+		var health_before = n.health
+		n.health = clamp (n.health - 0.5, 0.0, 1.0)
+		var health_delta = health_before - n.health
+		damage_amount += health_delta
+		
+		var fx = miracle_particles.instance()
+		fx.amount = 2 + 35 * damage_amount
+		n.add_child(fx)
+		fx.restart()
+
+	# Now, check for witnesses
+	targets = get_worshipers_within_radius(m.radius)
+	faith += damage_amount * m.cost * targets.size()
 
 
 

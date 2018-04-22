@@ -74,7 +74,7 @@ func _physics_process(delta):
 	$Status/Health/Disease.modulate = status_gradient.interpolate(1.0 - disease)
 	
 	# AI
-	watch()
+	watch(delta)
 
 	decide_again_in_secs -= delta
 	
@@ -123,7 +123,7 @@ func move_to_random_location():
 	move_to_then_do(Vector2(x,y), "do_nothing", null)
 
 
-func watch():
+func watch(delta):
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	for i in range($Vision.get_child_count()):
 		var ray_cast = $Vision.get_child(i)
@@ -132,6 +132,9 @@ func watch():
 		if ray_cast.is_colliding() and ray_cast.get_collider() == player:
 			$VisionLine.points[1] = to_local(ray_cast.get_collision_point())
 			$VisionLine.visible = true
+			
+			TheState.faith -= delta * 150
+			
 			return
 
 	$VisionLine.visible = false
@@ -139,6 +142,3 @@ func watch():
 	
 func do_nothing(dummy):
 	pass
-
-
-

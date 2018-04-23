@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/characters/worshiper.gd" type="Script" id=1]
 [ext_resource path="res://scenes/characters/character_skin_mask.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://fonts/normal_text.tres" type="DynamicFont" id=9]
 [ext_resource path="res://scenes/fx/die_animation.tres" type="Animation" id=10]
 [ext_resource path="res://sound/attack.wav" type="AudioStream" id=11]
+[ext_resource path="res://sound/sad.wav" type="AudioStream" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -18,7 +19,7 @@ custom_solver_bias = 0.0
 radius = 13.6663
 height = 31.4553
 
-[node name="Worshiper" type="KinematicBody2D" index="0"]
+[node name="Worshiper" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 4
@@ -188,7 +189,15 @@ blend_times = [  ]
 [node name="AttackPlayer" type="AudioStreamPlayer" parent="." index="9"]
 
 stream = ExtResource( 11 )
-volume_db = 0.0
+volume_db = -10.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="DiePlayer" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 12 )
+volume_db = -10.0
 autoplay = false
 mix_target = 0
 bus = "Master"

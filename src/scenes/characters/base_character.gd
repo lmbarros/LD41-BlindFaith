@@ -19,3 +19,4 @@ func die():
 	is_dying = true
 	$Anim.play("die_animation")
 	$DieTimer.start()
+	$DiePlayer.play()

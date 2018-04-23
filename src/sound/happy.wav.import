@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/happy.wav-44fc3c36bb4667b7bd074b3647c49a09.sample"
+
+[deps]
+
+source_file="res://sound/happy.wav"
+source_md5="caa801d58f8ce409a9e99a8ba9fcebe1"
+
+dest_files=[ "res://.import/happy.wav-44fc3c36bb4667b7bd074b3647c49a09.sample" ]
+dest_md5="6514f214940bd3fb7e68337bef0f194e"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

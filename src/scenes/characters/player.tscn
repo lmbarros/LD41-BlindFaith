@@ -36,7 +36,7 @@ tracks/0/keys = {
 "values": [ 0.0, 359.0 ]
 }
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 
@@ -82,6 +82,7 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Smoothing" ]
 self_modulate = Color( 1, 1, 1, 0.784549 )
 frames = SubResource( 1 )
 animation = "default"
+frame = 1
 playing = true
 _sections_unfolded = [ "Visibility" ]
 
@@ -105,7 +106,7 @@ _sections_unfolded = [ "Pause", "Playback Options" ]
 [node name="MiraclePlayer" type="AudioStreamPlayer" parent="." index="8"]
 
 stream = ExtResource( 6 )
-volume_db = -5.0
+volume_db = -15.0
 autoplay = false
 mix_target = 0
 bus = "Master"

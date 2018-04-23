@@ -304,6 +304,8 @@ func _on_DieTimer_timeout():
 func go_wage_war():
 	$Status/Action.text = "Waging war"
 	decide_again_in_secs = 120.0
+
+	$AttackPlayer.play()
 	
 	var nonbelievers = get_tree().get_nodes_in_group("Nonbelievers")
 	var n = nonbelievers[randi() % nonbelievers.size()]

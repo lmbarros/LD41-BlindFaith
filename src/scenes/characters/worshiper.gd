@@ -228,7 +228,7 @@ func watch(delta):
 			$VisionLine.points[1] = to_local(ray_cast.get_collision_point())
 			$VisionLine.visible = true
 			
-			TheState.faith -= delta * 150
+			TheState.faith -= delta * 225
 			
 			return
 

@@ -96,6 +96,7 @@ func _physics_process(delta):
 		else:
 			path.remove(0)
 			if path.size() == 0:
+				$Status/Action.text = "Idling"
 				self.call(func_at_arrival, arg_at_arrival)
 
 #

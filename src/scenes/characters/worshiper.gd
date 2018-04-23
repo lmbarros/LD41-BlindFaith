@@ -341,10 +341,10 @@ func attack_nonbeliever(nonbeliever):
 
 	# Counter-attack
 	if foe.health > 0.0:
-		disease += rand_range(0.0, 0.05)
+		disease += rand_range(0.0, 0.1)
 		disease = clamp(disease, 0.0, 1.0)
 
-		health -= rand_range(0.0, 0.16)
+		health -= rand_range(0.0, 0.35)
 		health = clamp(health, 0.0, 1.0)
 
 	if health > 0.0:
